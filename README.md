@@ -1,0 +1,1 @@
+# Simple CRUD example using Vue3 and Quasar
