@@ -1,7 +1,6 @@
 <template>
-  <q-select v-model.trim="model" :class="{required, 'inline-field': inline}"
-            lazy-rules v-bind="$attrs"
-            :rules="[required ? reqR : null, ...(Array.isArray(rules) ? rules : [rules])]"/>
+  <q-select v-model.trim="model" :class="{ required, 'inline-field': inline }" lazy-rules v-bind="$attrs"
+    :rules="[required ? reqR : null, ...(Array.isArray(rules) ? rules : [rules])]" />
 </template>
 
 <script setup>

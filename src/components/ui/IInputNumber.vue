@@ -1,7 +1,6 @@
 <template>
-  <q-input v-model.number="model" :class="{required, 'inline-field': inline}"
-           debounce="400" v-bind="$attrs" type="number" lazy-rules
-           :rules="[required && reqR, ...(Array.isArray(rules) ? rules : [rules])]"/>
+  <q-input v-model.number="model" :class="{ required, 'inline-field': inline }" debounce="400" v-bind="$attrs"
+    type="number" lazy-rules :rules="[required && reqR, ...(Array.isArray(rules) ? rules : [rules])]" />
 </template>
 
 <script setup>

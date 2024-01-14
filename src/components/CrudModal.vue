@@ -8,11 +8,11 @@
         <q-form @submit="onSubmit" @reset="onReset">
           <slot></slot>
           <!-- for test -->
-          <!-- <span style="display: block; max-width: 460px">{{ model }}</span> -->
+          <!-- <pre>{{ model }}</pre> -->
           <div style="margin-top: 60px">
-            <q-btn flat label="Save" type="submit" color="primary" :disabled="!changed"/>
-            <q-btn v-if="withReset" flat label="Reset" type="reset" :disabled="!changed"/>
-            <q-btn flat label="Cancel" @click="onCancel"/>
+            <q-btn flat label="Save" type="submit" color="primary" :disabled="!changed" />
+            <q-btn v-if="withReset" flat label="Reset" type="reset" :disabled="!changed" />
+            <q-btn flat label="Cancel" @click="onCancel" />
           </div>
         </q-form>
       </q-card-section>
@@ -26,7 +26,7 @@ import { confirm } from '../helpers/interaction'
 import { deepClone, deepEqual } from '../helpers/util'
 
 const props = defineProps({
-  subj: String,
+  subj: { type: String, default: 'record' },
   model: Object,
   withReset: Boolean,
   width: { type: String, default: '500' },
@@ -66,7 +66,7 @@ const close = () => {
 const onCancel = async () => {
   if (!changed.value) return close()
 
-  confirm('Record not saved. Continue editing?')
+  confirm(`The ${props.subj} not saved. Continue editing?`)
     .onCancel(() => close())
 }
 
